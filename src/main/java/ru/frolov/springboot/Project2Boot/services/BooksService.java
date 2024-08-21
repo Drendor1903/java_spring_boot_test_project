@@ -2,7 +2,6 @@ package ru.frolov.springboot.Project2Boot.services;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.frolov.springboot.Project2Boot.models.Book;
