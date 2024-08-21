@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Book</h1>
+<div>
+    <p>ID: <span th:text="${book.getBookId()}"></span></p>
+    <p>Author: <span th:text="${book.getAuthor()}"></span></p>
+    <p>Name book: <span th:text="${book.getBookName()}"></span></p>
+    <p>Release year: <span th:text="${book.getYearOfRelease()}"></span></p>
+</div>
+
+<form th:method="DELETE" th:action="@{/books/{id}(id=${book.getBookId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+
+<form th:method="GET" th:action="@{/books/{id}/edit(id=${book.getBookId()})}">
+    <input type="submit" value="Edit" />
+</form>
+
+<h2>Person Details</h2>
+
+<div th:if="${people}">
+    <p>Books is not use</p>
+    <form th:method="PATCH" th:action="@{/books/{id}/assign(id=${book.getBookId()})}" th:object="${person}">
+        <label for="personId">Select person</label>
+        <select th:field="*{personId}" id="personId">
+            <option th:each="person : ${people}" th:value="${person.getPersonId()}"
+                    th:text="${person.getFullName()}"></option>
+        </select>
+
+        <input type="submit" value="Select book"/>
+    </form>
+</div>
+<div th:if="${owner}">
+    <form th:method="PATCH" th:action="@{/books/{id}/remove(id=${book.getBookId()})}">
+        <p >Full name: <span th:text="${owner.getFullName()}"></span></p>
+        <input type="submit" value="Remove"/>
+    </form>
+</div>
+
+</body>
+</html>
