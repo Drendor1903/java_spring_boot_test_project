@@ -1,4 +1,4 @@
-# Liibrary-project
+# Library-project
 
 ### Технологии
 * Java 11
