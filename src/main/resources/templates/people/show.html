@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>Person Details</h1>
+<h1>Информация о пользователе</h1>
 <div>
     <p>ID: <span th:text="${person.getPersonId()}"></span></p>
     <p>Full name: <span th:text="${person.getFullName()}"></span></p>
@@ -15,13 +15,13 @@
 </div>
 
 <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPersonId()})}">
-    <input type="submit" value="Delete"/>
+    <input type="submit" value="Удалить"/>
 </form>
 <form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getPersonId()})}">
-    <input type="submit" value="Edit" />
+    <input type="submit" value="Редактировать" />
 </form>
 
-<h2>Books</h2>
+<h2>Книги</h2>
 <div>
     <ul th:if="${!books.isEmpty()}">
         <li th:each="book : ${books}">
@@ -30,7 +30,7 @@
            </span>
         </li>
     </ul>
-    <p th:if="${books.size() == 0}">This person has not taken any books.</p>
+    <p th:if="${books.size() == 0}">Данный пользователь не имеет книг.</p>
 </div>
 
 </body>

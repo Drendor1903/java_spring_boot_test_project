@@ -1,6 +1,7 @@
 package ru.frolov.springboot.Project2Boot.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 
@@ -16,9 +17,10 @@ public class Person {
     private int personId;
 
     @Column(name = "full_name")
-    @NotEmpty(message = "Full name should not be empty")
+    @NotEmpty(message = "Поле 'Имя пользователя' не должно быть пустым")
     private String fullName;
 
+    @Min(value = 1950, message = "Дата рождения должна быть > 1950")
     @Column(name = "year_of_birth")
     private int yearOfBirth;
 

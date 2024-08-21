@@ -22,16 +22,16 @@ public class Book {
     private Person owner;
 
     @Column(name = "book_name")
-    @NotEmpty(message = "Name should not be empty")
+    @NotEmpty(message = "Поле 'Название книги' не должно быть пустым")
     @Size(min = 2, max = 100, message = "")
     private String bookName;
 
     @Column(name = "author")
-    @NotEmpty(message = "Name should not be empty")
+    @NotEmpty(message = "Поле 'Автор' не должно быть пустым")
     private String author;
 
     @Column(name = "year_of_release")
-    @Min(value = 1500, message = "Year of birth should be > 1940")
+    @Min(value = 1940, message = "Дата написания книги должна быть > 1940г.")
     private int yearOfRelease;
 
     @Column(name = "taken_at")

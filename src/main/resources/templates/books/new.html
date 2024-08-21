@@ -2,24 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create person</title>
+    <title>Добавление книги</title>
 </head>
 <body>
 
 <form th:method="POST" th:action="@{/books}" th:object="${book}">
-  <label for="bookName">Enter name book: </label>
+  <label for="bookName">Введите название книги: </label>
   <input type="text" th:field="*{bookName}" id="bookName"/>
-  <div style="color: red" th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}">FIO error</div>
+  <div style="color: red" th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}">Book name error</div>
   <br/>
-  <label for="author">Enter author: </label>
+  <label for="author">Введите автора: </label>
   <input type="text" th:field="*{author}" id="author"/>
-  <div style="color: red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Birth Year error</div>
+  <div style="color: red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author error</div>
   <br/>
-  <label for="yearOfRelease">Enter release year: </label>
+  <label for="yearOfRelease">Введите год выпуска: </label>
   <input type="text" th:field="*{yearOfRelease}" id="yearOfRelease"/>
-  <div style="color: red" th:if="${#fields.hasErrors('yearOfRelease')}" th:errors="*{yearOfRelease}">Birth Year error</div>
+  <div style="color: red" th:if="${#fields.hasErrors('yearOfRelease')}" th:errors="*{yearOfRelease}">Year of release error</div>
   <br/>
-  <input type="submit" value="Add!"/>
+  <input type="submit" value="Добавить!"/>
 </form>
 
 </body>

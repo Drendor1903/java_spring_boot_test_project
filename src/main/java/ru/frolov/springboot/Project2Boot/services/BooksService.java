@@ -43,6 +43,7 @@ public class BooksService {
     public Person getBookOwner(int id){
         return booksRepository.findById(id).map(Book::getOwner).orElse(null);
     }
+
     @Transactional
     public void assign(int id, Person person) {
         booksRepository.findById(id).ifPresent(book->{
@@ -82,4 +83,6 @@ public class BooksService {
         else
             return booksRepository.findAll(PageRequest.of(page, itemPerPage)).getContent();
     }
+
+
 }
